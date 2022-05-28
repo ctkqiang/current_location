@@ -66,15 +66,28 @@ FutureBuilder(
     future: UserLocation.getValue(),
     builder: (BuildContext context, dynamic snapshot) {
         if (snapshot.hasData) {
-            return Padding(
-                padding: const EdgeInsets.all(30),
-                child: Text(snapshot.data!.toString()),
+            return Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                        Text('Country: ${snapshot.data!.country}'),
+                        Text('Country Code: ${snapshot.data!.countryCode}'),
+                        Text('Region: ${snapshot.data!.region}'),
+                        Text('Region Name: ${snapshot.data!.regionName}'),
+                        Text('Timezone: ${snapshot.data!.timezone}'),
+                        Text('Latitude: ${snapshot.data!.latitude}'),
+                        Text('Longitude: ${snapshot.data!.longitude}'),
+                        Text('ISP: ${snapshot.data!.isp}'),
+                        Text('Current IP: ${snapshot.data!.currentIP}'),
+                    ],
+                ),
             );
         }
         
         return const CircularProgressIndicator();
     },
-),  
+),
 ```
 
 Example of returning it raw:

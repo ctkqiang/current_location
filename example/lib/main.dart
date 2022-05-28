@@ -1,4 +1,5 @@
 import 'package:current_location/current_location.dart';
+import 'package:current_location/model/location.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -63,21 +64,30 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: FutureBuilder(
-          future: UserLocation.getValue(),
-          builder: (BuildContext context, dynamic snapshot) {
-            if (snapshot.hasData) {
-              return Padding(
-                padding: const EdgeInsets.all(30),
-                child: Text(snapshot.data!.toString()),
-              );
-            }
-            return const CircularProgressIndicator();
-          },
-        ),
+      body: FutureBuilder(
+        future: UserLocation.getValue(),
+        builder: (BuildContext context, dynamic snapshot) {
+          if (snapshot.hasData) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text('Country: ${snapshot.data!.country}'),
+                  Text('Country Code: ${snapshot.data!.countryCode}'),
+                  Text('Region: ${snapshot.data!.region}'),
+                  Text('Region Name: ${snapshot.data!.regionName}'),
+                  Text('Timezone: ${snapshot.data!.timezone}'),
+                  Text('Latitude: ${snapshot.data!.latitude}'),
+                  Text('Longitude: ${snapshot.data!.longitude}'),
+                  Text('ISP: ${snapshot.data!.isp}'),
+                  Text('Current IP: ${snapshot.data!.currentIP}'),
+                ],
+              ),
+            );
+          }
+          return const CircularProgressIndicator();
+        },
       ),
     );
   }
