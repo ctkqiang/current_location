@@ -1,6 +1,6 @@
 name: current_location
 description: A new Flutter package that returns user's current location and ip address.
-version: 0.0.2
+version: 0.0.3
 publisher: John Melody Me
 homepage: https://github.com/johnmelodyme/current_location.git
 

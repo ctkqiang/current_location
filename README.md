@@ -93,7 +93,14 @@ FutureBuilder(
 Example of returning it raw:
 
 ```dart
-UserLocation.getValue().then((value) => print(value));
+UserLocation.getValue().then((value) => print(value?.{REPLACE_THIS_OBJECT}));
+```
+or
+```dart
+late final UserLocation userLocation =  await UserLocation.getValue();
+
+print(userLocation.country!);
+print(userLocation.{REPLACE_THIS_OBJECT}!)
 ```
 
 ### Contribution:
