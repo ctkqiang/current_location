@@ -1,39 +1,92 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## SimpleInAppWebView
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+|                 | Android | IOS     |
+| --------------- | ------- | ------- |
+| **Requirement** | min 16+ | min 9.0 |
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+### Getting Started
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+This package get the user current `Location` details. The returned data are the following:
 
 ```dart
-const like = 'sample';
+Location({
+    this.country,
+    this.countryCode,
+    this.region,
+    this.regionName,
+    this.timezone,
+    this.latitude,
+    this.longitude,
+    this.isp,
+    this.currentIP,
+});
 ```
 
-## Additional information
+#### Demo:
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+<!-- ![demo]() -->
+
+### How to use?
+
+1. Installation
+   Add `current_location` to `pubspec.yaml`, and hit command `flutter pub get`.
+   or
+   run `flutter pub add current_location`
+
+   ```yaml
+   dependencies:
+     current_location: any
+   ```
+
+2. Implementation
+   Before implementing, make sure you uderstand the `parameters`.
+
+```dart
+Location({
+    this.country,
+    this.countryCode,
+    this.region,
+    this.regionName,
+    this.timezone,
+    this.latitude,
+    this.longitude,
+    this.isp,
+    this.currentIP,
+});
+```
+
+```dart
+  import 'package:current_location/current_location.dart';
+```
+
+Example of calling the function into a widget:
+
+```dart
+FutureBuilder(
+    future: UserLocation.getValue(),
+    builder: (BuildContext context, dynamic snapshot) {
+        if (snapshot.hasData) {
+            return Padding(
+                padding: const EdgeInsets.all(30),
+                child: Text(snapshot.data!.toString()),
+            );
+        }
+        
+        return const CircularProgressIndicator();
+    },
+),  
+```
+
+Example of returning it raw:
+
+```dart
+UserLocation.getValue().then((value) => print(value));
+```
+
+### Contribution:
+
+I Would ❤️ to see any contributions. If you do liked my work, show some ❤️ by ⭐ repo.
+
+Also you can appreciate me by buy me a coffee:
+<br />
+<a href="https://www.buymeacoffee.com/johnmelodymel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
