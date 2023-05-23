@@ -106,7 +106,6 @@ print(userLocation.{REPLACE_THIS_OBJECT}!)
 ### Contribution:
 
 I Would ❤️ to see any contributions. If you do liked my work, show some ❤️ by ⭐ repo.
-
-Also you can appreciate me by buy me a coffee:
+我愿意❤️ 查看任何贡献。如果你真的喜欢我的作品，展示一下❤️ 通过⭐ 回购。
 <br />
-<a href="https://www.buymeacoffee.com/johnmelodymel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<img src="https://raw.githubusercontent.com/johnmelodyme/current_location/johnmelodyme-alipayqr/IMG_4026.JPG"  style="height: 500px !important;width: 300px !important;" >
